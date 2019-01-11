@@ -65,7 +65,7 @@ void setup() {
   AES aes(keyEncrypt, iv, AES::AES_MODE_128, AES::CIPHER_ENCRYPT);
 
   // create buffer for final message which will contain IV, encrypted message, and HMAC
-  int encryptedSize = aes.calc_size_n_pad(packetSize);
+  int encryptedSize = aes.calcSizeAndPad(packetSize);
   int ivEncryptedSize = encryptedSize + AES_KEY_LENGTH;
   int ivEncryptedHmacSize = ivEncryptedSize + SHA256HMAC_SIZE;
   uint8_t ivEncryptedHmac[ivEncryptedHmacSize];
